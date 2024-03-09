@@ -1,5 +1,17 @@
 name: Test React App
-on: workflow_dispatch
+on:
+  workflow_dispatch: 
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
+      - develop
+      - feat/**
+      - fix/**
+    paths-ignore:
+      - '.github/**'
+        
 jobs:
   test:
     runs-on: ubuntu-latest
