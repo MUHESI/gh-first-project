@@ -16,10 +16,13 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          This just a exercice for testing  building and deploying CI/CD  with github action,
+          learn react
         </a>
       </header>
-      <p>@MUHESI</p>
+      <div>
+        This just a exercice for testing  building and deploying CI/CD  with github action,
+      </div>
+      <strong>@MUHESI</strong>
     </div>
   );
 }
