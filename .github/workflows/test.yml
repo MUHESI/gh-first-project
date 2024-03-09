@@ -9,9 +9,9 @@ on:
       - develop
       - feat/**
       - fix/**
-    paths-ignore:
-      - '.github/**'
-        
+    # paths-ignore:
+    #   - '.github/**'
+
 jobs:
   test:
     runs-on: ubuntu-latest
