@@ -42,7 +42,7 @@ jobs:
       - name: build
         run: npm run build
   deploy:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Code
