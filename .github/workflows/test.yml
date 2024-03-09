@@ -3,16 +3,6 @@ permissions:
   contents: write
 on:
   workflow_dispatch: 
-  pull_request:
-    types: [opened, reopened, synchronize]
-  push:
-    branches:
-      - main
-      - develop
-      - feat/**
-      - fix/**
-    # paths-ignore:
-    #   - '.github/**'
 
 jobs:
   test:
