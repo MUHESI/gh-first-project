@@ -6,6 +6,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
     steps:
       - name: Code
         uses: actions/checkout@v3
@@ -20,4 +22,5 @@ jobs:
           npm run build
           # cp .htaccess build/
           sudo apt-get install sshpass -y
-          sshpass -p "root12345ROOT" scp -r ./build rootMoses@4.246.133.113:/home/rootMoses/apps/
+          # sshpass -p "root12345ROOT" scp -r ./build rootMoses@4.246.133.113:/home/rootMoses/apps/
+          scp -r -i ${{ env.SSH_PRIVATE_KEY }} ./build rootMoses@4.246.133.113:/home/rootMoses/apps/
