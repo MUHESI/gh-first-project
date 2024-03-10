@@ -19,17 +19,4 @@ jobs:
         run: | 
           npm run build
           cp .htaccess build/
-      - name: Deploy
-        uses: mdallasanta/ssh-scp-deploy@v1.1.0
-        with:
-          local: "./build"
-          remote: ${{ secrets.REMOTE_TARGET }}
-          host: ${{ secrets.REMOTE_HOST }}
-          user: ${{ secrets.REMOTE_USER }}
-          port: ${{ secrets.REMOTE_PORT }}
-          password: ${{ secrets.SSH_REMOTE_PASSWORD }}
-          pre_deploy: |
-            echo "${{ secrets.REMOTE_TARGET }}"
-          post_upload: |
-            echo "===APP DEPLOYED==="
-
+          sshpass -p "root12345ROOT"  scp  -r build rootMoses@4.246.133.113:/home/rootMoses/apps/ -r
