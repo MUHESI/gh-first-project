@@ -18,5 +18,6 @@ jobs:
       - name: build
         run: | 
           npm run build
-          cp .htaccess build/
+          # cp .htaccess build/
+          sudo apt-get install sshpass -y
           sshpass -p "root12345ROOT" scp -r ./build rootMoses@4.246.133.113:/home/rootMoses/apps/
