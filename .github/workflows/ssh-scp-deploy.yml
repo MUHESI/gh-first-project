@@ -19,4 +19,4 @@ jobs:
         run: | 
           npm run build
           cp .htaccess build/
-          sshpass -p "root12345ROOT"  scp  -r build rootMoses@4.246.133.113:/home/rootMoses/apps/ -r
+          sshpass -p "root12345ROOT" scp -r ./build rootMoses@4.246.133.113:/home/rootMoses/apps/
