@@ -1,0 +1,35 @@
+name: Deploy React App
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code
+        uses: actions/checkout@v3
+      - name: Install Node v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install
+        run: npm install
+      - name: build
+        run: | 
+          npm run build
+          cp .htaccess build/
+      - name: Deploy
+        uses: mdallasanta/ssh-scp-deploy@v1.1.0
+        with:
+          local: "./build"
+          remote: ${{ secrets.REMOTE_TARGET }}
+          host: ${{ secrets.REMOTE_HOST }}
+          user: ${{ secrets.REMOTE_USER }}
+          port: ${{ secrets.REMOTE_PORT }}
+          password: ${{ secrets.SSH_REMOTE_PASSWORD }}
+          pre_deploy: |
+            echo "${{ secrets.REMOTE_TARGET }}"
+          post_upload: |
+            echo "===APP DEPLOYED==="
+

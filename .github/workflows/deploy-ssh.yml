@@ -2,9 +2,10 @@ name: Deploy React App
 permissions:
   contents: write
 on:
-  push:
-    branches:
-      - develop
+  workflow_dispatch: 
+  # push:
+  #   branches:
+  #     - develop
     # paths-ignore:
     #   - '.github/**'
 
